@@ -6,33 +6,9 @@ import utils.MsgConstants.INVALID_INPUT
 import java.lang.NumberFormatException
 
 object UserInputValidator {
-
-    fun isDigit(input: List<Int>){
-        try {
-            input.joinToString("").toInt()
-        } catch (e: NumberFormatException) {
+    fun isValidInput(input: String) {
+        if (input.length != SUCCESS.state || input.toSet().size != input.length || !input.all { it.isDigit() && it != '0' }) {
             throw IllegalArgumentException(INVALID_INPUT)
         }
     }
-
-    fun hasSameNumber(input: List<Int>) {
-        if (input.size != input.distinct().size) {
-            throw IllegalArgumentException(INVALID_INPUT)
-        }
-    }
-
-    fun hasRightSize(input: List<Int>) {
-        if (input.size != SUCCESS.state) {
-            throw IllegalArgumentException(INVALID_INPUT)
-        }
-    }
-
-    fun isValidNumberRange(input: List<Int>) {
-        for (num in input) {
-            if (num !in GameState.START_RANGE.state..END_RANGE.state) {
-                throw IllegalArgumentException(INVALID_INPUT)
-            }
-        }
-    }
-
 }
