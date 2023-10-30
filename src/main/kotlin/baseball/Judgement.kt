@@ -2,7 +2,6 @@ package baseball
 
 import utils.GameState.SUCCESS
 import utils.MsgConstants.BALL
-import utils.MsgConstants.END
 import utils.MsgConstants.NOTHING
 import utils.MsgConstants.STRIKE
 
@@ -38,6 +37,5 @@ class Judgement (
             strike > 0 && ball == 0-> print("$strike$STRIKE")
         }
         println()
-        if (strike == SUCCESS.state) println("${SUCCESS.state}$END")
     }
 }

@@ -1,15 +1,13 @@
 package baseball
 
 import camp.nextstep.edu.missionutils.Console
+import utils.GameState
 import utils.GameState.RESTART
 import utils.GameState.TERMINATION
 import utils.MsgConstants
 import utils.NumberListGenerator.getRandomNumList
 import utils.NumberListGenerator.makeUserNumList
-import utils.UserInputValidator.hasRightSize
-import utils.UserInputValidator.hasSameNumber
-import utils.UserInputValidator.isDigit
-import utils.UserInputValidator.isValidNumberRange
+import utils.UserInputValidator.isValidInput
 
 class Game {
     fun startGame() {
@@ -26,17 +24,9 @@ class Game {
         do {
             print(MsgConstants.INPUT)
             val input = Console.readLine()
+            isValidInput(input)
             val userNum = makeUserNumList(input)
-            checkInputValid(userNum)
         } while (Judgement(computerNum, userNum).compareNumbers())
+        println("${GameState.SUCCESS.state}${MsgConstants.END}")
     }
-
-    private fun checkInputValid(numList: List<Int>) {
-        isDigit(numList)
-        hasSameNumber(numList)
-        hasRightSize(numList)
-        isValidNumberRange(numList)
-    }
-
-
 }
