@@ -7,4 +7,5 @@ object MsgConstants {
     const val BALL = "볼"
     const val STRIKE = "스트라이크"
     const val NOTHING = "낫싱"
+    const val INVALID_INPUT = "잘못된 입력값입니다."
 }

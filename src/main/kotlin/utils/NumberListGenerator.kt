@@ -2,8 +2,8 @@ package utils
 
 import camp.nextstep.edu.missionutils.Randoms
 
-object RandomNumberGenerator {
-    fun getRandomNum(): List<Int> {
+object NumberListGenerator {
+    fun getRandomNumList(): List<Int> {
         val numList: MutableList<Int> = mutableListOf()
 
         while (numList.size < 3) {
@@ -13,5 +13,9 @@ object RandomNumberGenerator {
             }
         }
         return numList.toList()
+    }
+
+    fun makeUserNumList(userNum: String): List<Int> {
+        return userNum.map { it.toString().toInt() }.toList()
     }
 }
